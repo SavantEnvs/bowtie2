@@ -1,0 +1,11 @@
+project: savantenvs/bowtie2
+target: align-index-rev1bt2
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/align-index-rev1bt2/testsuite
+
+cmds:
+  # mayhem-lint: ok-image-path (the fixed bowtie2 index is only read; output goes to /dev/null)
+  - cmd: /mayhem/mayhem/out/bowtie2-align-s-idxwrap /mayhem/mayhem/out/idx/tiny .rev.1.bt2 @@ -p 1 -x @IDX@ -c GCAGCGCAACACCCTTATCTGGTTGCCGACGGATGGTG,TTGGCGTGGAGCCACGGATGGACTTTGGCCAGACCGAGCC -S /dev/null
+    timeout: 10

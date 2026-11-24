@@ -1,0 +1,5 @@
+# upstream .gitignore ignores *.bt2; the index-file seeds must be tracked
+!*.bt2
+out/
+build-san/
+build-idx/

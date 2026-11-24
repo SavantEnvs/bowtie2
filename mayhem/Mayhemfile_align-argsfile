@@ -1,0 +1,11 @@
+project: savantenvs/bowtie2
+target: align-argsfile
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/align-argsfile/testsuite
+
+cmds:
+  # The wrapper runs each input in a private scratch cwd (removed afterwards); @FILE@ is the input.
+  - cmd: /mayhem/mayhem/out/bowtie2-align-s-idxwrap - - @@ -A @FILE@
+    timeout: 10

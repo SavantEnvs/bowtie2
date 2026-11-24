@@ -1,0 +1,2 @@
+-x /mayhem/mayhem/out/lambda/lambda_virus -p 1 -c TGAATGCGAACTCCGGGACGCTCAGTAATGTGACGATAGCTGAAAACTGT -S /dev/null
+-x /mayhem/mayhem/out/lambda/lambda_virus -p 1 --local --score-min G,20,8 -c TGAATGCGAACTCCGGGACGCTCAGTAATGTGACGATAGCTGAAAACTGT,ACGTACGTTTGACCA -S /dev/null --no-hd

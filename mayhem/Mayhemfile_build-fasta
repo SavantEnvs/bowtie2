@@ -1,0 +1,11 @@
+project: savantenvs/bowtie2
+target: build-fasta
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/build-fasta/testsuite
+
+cmds:
+  # The wrapper runs each input in a private scratch cwd, so ./bt2out.*.bt2 is removed afterwards.
+  - cmd: /mayhem/mayhem/out/bowtie2-build-s-idxwrap - - @@ --threads 1 -q @FILE@ bt2out
+    timeout: 10

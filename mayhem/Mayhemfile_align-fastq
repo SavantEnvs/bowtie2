@@ -1,0 +1,11 @@
+project: savantenvs/bowtie2
+target: align-fastq
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/align-fastq/testsuite
+
+cmds:
+  # mayhem-lint: ok-image-path (the fixed bowtie2 index is only read; output goes to /dev/null)
+  - cmd: /mayhem/mayhem/out/bowtie2-align-s -p 1 -x /mayhem/example/index/lambda_virus -q -U @@ --sam-append-comment -S /dev/null
+    timeout: 10

@@ -1,0 +1,11 @@
+project: savantenvs/bowtie2
+target: align-tab6
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/align-tab6/testsuite
+
+cmds:
+  # mayhem-lint: ok-image-path (the fixed bowtie2 index is only read; output goes to /dev/null)
+  - cmd: /mayhem/mayhem/out/bowtie2-align-s -p 1 -x /mayhem/example/index/lambda_virus --tab6 @@ -S /dev/null
+    timeout: 10
